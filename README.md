@@ -10,6 +10,10 @@ This repository serves as a database of useful command-line statemnts with a Bio
 - Replacing matching entries in one column of a file by its matching second column from a different file (matches column 1 in input file to column 1 in second input file. Then replaces the name of the **first** column in the first file with the **second** column in the second file): `awk 'NR==FNR{a[$1]=$2; next}{$1=a[$1]; print}' file2 file1`
 - Gets the unique count of each entry in a specified column: `awk -F ',' '{print $7}' text_file | sort | uniq -c`
 - Removes blank lines from file, excludes spaces: `sed -i '/^$/d' file.txt`
+- Check to see if 2 paired FASTQ files are in sorted order:
+  - `gunzip -c A1_1.fastq.gz | sed -n '1~4p' | cut -d . -f1,2 | head > A1_1_sorted.fastq`
+  - `gunzip -c A1_2.fastq.gz | sed -n '1~4p' | cut -d . -f1,2 | head > A1_2_sorted.fastq`
+  - `diff A1_1_sorted.fastq A1_2_sorted.fastq` If nothing returned, then both FASTQ files are in sorted order. Depending on what format the FASTQ names are, may need to vary the cut parameters
 
 ## BEDTools
 - Deduces how many genes overlap a different gene in the same BED file: `bedtools intersect -wa -a genes.bed -b genes.bed | wc -l`
