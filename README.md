@@ -9,6 +9,7 @@ This repository serves as a database of useful command-line statemnts with a Bio
 - Counts the number of mRNA grcz10_refseq.bed that are not on chr14: `grep -wv "^chr14" grcz10_refseq.bed | cut -f4 | grep -c "^NM_"`
 - Replacing matching entries in one column of a file by its matching second column from a different file (matches column 1 in input file to column 1 in second input file. Then replaces the name of the **first** column in the first file with the **second** column in the second file): `awk 'NR==FNR{a[$1]=$2; next}{$1=a[$1]; print}' file2 file1`
 - Gets the unique count of each entry in a specified column: `awk -F ',' '{print $7}' text_file | sort | uniq -c`
+-Removes blank lines from file, excludes spaces: `sed -i '/^$/d' file.txt`
 
 ## BEDTools
 - Deduces how many genes overlap a different gene in the same BED file: `bedtools intersect -wa -a genes.bed -b genes.bed | wc -l`
