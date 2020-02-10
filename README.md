@@ -15,7 +15,7 @@ This repository serves as a database of useful command-line statemnts with a Bio
 - Deduces how many genes overlap a different gene in the same BED file: `bedtools intersect -wa -a genes.bed -b genes.bed | wc -l`
 - Produces a BED12 file of genes that do not overlap any repeat elements: `bedtools intersect -v -a genes.bed -b repeats.bed`
 - Finds genes in genes.bed that overlap antisense to another gene (by any amount): `bedtools intersect -wa -wb -S -a genes.bed -b genes.bed`
-- Create a BED file of promoter regions (-1000/+100 nt window around the transcription start site (TSS) of a gene). We would want to include some parts downstream of the stat coordinate as transcription factors will often bind there: ` bedtools flank -s -l 1 -r 0 -i genes.bed -g chr_sizes.txt | bedtools slop -s -l 1000 -r 100 -i - -g chr_sizes.txt > promoters.bed`
+- Create a BED file of promoter regions (-1000/+100 nt window around the transcription start site (TSS) of a gene). We would want to include some parts downstream of the start coordinate as transcription factors will often bind there: ` bedtools flank -s -l 1 -r 0 -i genes.bed -g chr_sizes.txt | bedtools slop -s -l 1000 -r 100 -i - -g chr_sizes.txt > promoters.bed`
 - Produces a BED6 file called representing a +/- 1kb window around every transcription termination site for genes in my_gene.bed: `bedtools flank -s -l 0 -r 1 -i my_gene.bed -g chr_sizes.txt | bedtools slop -s -l 1000 -r 1000 -i - -g chr_sizes.txt | cut -f -6 > output.bed`
 - Makes a FASTA file called q6 that contains the sequences of all Kolobok repeat elements in my_repeat.bed: 
   -`sort -k1,1 -k2,2n my_repeat.bed | grep "Kolobok" > output1.bed`
