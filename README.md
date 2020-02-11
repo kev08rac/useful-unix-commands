@@ -10,6 +10,7 @@ This repository serves as a database of useful command-line statements with a Bi
 - Removes blank lines from file, excludes spaces: `sed -i '/^$/d' file.txt`
 - Finding the proportion of each row based on the sum of numeric values in column 1: `awk 'FNR==NR{s+=$1;next;} {printf "%s\t%s\t%s\n",$1,$2,$1/s}' q2a q2a > q2a.1`
 - Return lines that do **not** contain a specified sequence in a specified column: `awk '$0 !~ /your_pattern/'`
+- Find the proportion of all numeric values in column 1 and report it in column 3: `awk 'FNR==NR{s+=$1;next;} {printf "%s\t%s\t%s\n",$1,$2,$1/s}' data.txt data.txt > output.txt`
 
 ## FASTQ/A
 - Reading a gzipped file: `zcat SRR1039508_1.fastq.gz`
