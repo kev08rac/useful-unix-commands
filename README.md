@@ -6,10 +6,10 @@ This repository serves as a database of useful command-line statements with a Bi
 - Counts the number of genes on the reverse strand from a BED file: `cut -f6 grcz10_refseq.bed | grep -c "-"`
 - Counts the number of mRNA grcz10_refseq.bed that are not on chr14: `grep -wv "^chr14" grcz10_refseq.bed | cut -f4 | grep -c "^NM_"`
 - Replacing matching entries in one column of a file by its matching second column from a different file (matches column 1 in input file to column 1 in second input file. Then replaces the name of the **first** column in the first file with the **second** column in the second file): `awk 'NR==FNR{a[$1]=$2; next}{$1=a[$1]; print}' file2 file1`
-- Gets the unique count of each entry in a specified column: `awk -F ',' '{print $7}' text_file | sort | uniq -c`
+- Gets the unique count of each entry in a specified column (this example is a comma-separated file): `awk -F ',' '{print $7}' text_file | sort | uniq -c`
 - Removes blank lines from file, excludes spaces: `sed -i '/^$/d' file.txt`
-
 - Finding the proportion of each row based on the sum of numeric values in column 1: `awk 'FNR==NR{s+=$1;next;} {printf "%s\t%s\t%s\n",$1,$2,$1/s}' q2a q2a > q2a.1`
+- Return lines that do **not** contain a specified sequence in a specified column: `awk '$0 !~ /your_pattern/'`
 
 ## FASTQ/A
 - Reading a gzipped file: `zcat SRR1039508_1.fastq.gz`
