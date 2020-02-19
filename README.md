@@ -19,6 +19,8 @@ This repository serves as a database of useful command-line statements with a Bi
   - `gunzip -c A1_1.fastq.gz | sed -n '1~4p' | cut -d . -f1,2 | head > A1_1_sorted.fastq`
   - `gunzip -c A1_2.fastq.gz | sed -n '1~4p' | cut -d . -f1,2 | head > A1_2_sorted.fastq`
   - `diff A1_1_sorted.fastq A1_2_sorted.fastq` If nothing returned, then both FASTQ files are in sorted order. Depending on what format the FASTQ names are, may need to vary the cut parameters
+- Gets the quality score of the first base of a FASTQ file: `gunzip -c A1_1.fastq.gz | sed -n '4~4p' | cut -c1 | sort | uniq -c | sort -k1,1n | tail -1`
+  - Change the `cut -c` flag to match the amount of bases of your FASTQ entries, and remove the tail -1 command to find the QC of the **last** base
 
 ## BEDTools
 - Deduces how many genes overlap a different gene in the same BED file: `bedtools intersect -wa -a genes.bed -b genes.bed | wc -l`
@@ -30,7 +32,5 @@ This repository serves as a database of useful command-line statements with a Bi
   -`sort -k1,1 -k2,2n my_repeat.bed | grep "Kolobok" > output1.bed`
   -`bedtools getfasta -name -s -fi genome.fa -bed output1.bed -fo > output1.fa`
 - Makes a BED4 file (i.e., chr, start, end, geneID) of all introns for the genes in my_gene.bed: `bed12ToBed6 -i my_gene.bed | bedtools subtract -a my_gene.bed -b - | cut -f -4 > output.bed`
-- Gets the quality score of the first base of a FASTQ file: `gunzip -c A1_1.fastq.gz | sed -n '4~4p' | cut -c1 | sort | uniq -c | sort -k1,1n | tail -1`
-  - Change the `cut -c` flag to match the amount of bases of your FASTQ entries, and remove the tail -1 command to find the QC of the **last** base
 
 **Will be continually updated to include a wider range of bioinformatics tools**
