@@ -31,6 +31,6 @@ This repository serves as a database of useful command-line statements with a Bi
   -`bedtools getfasta -name -s -fi genome.fa -bed output1.bed -fo > output1.fa`
 - Makes a BED4 file (i.e., chr, start, end, geneID) of all introns for the genes in my_gene.bed: `bed12ToBed6 -i my_gene.bed | bedtools subtract -a my_gene.bed -b - | cut -f -4 > output.bed`
 - Gets the quality score of the first base of a FASTQ file: `gunzip -c A1_1.fastq.gz | sed -n '4~4p' | cut -c1 | sort | uniq -c | sort -k1,1n | tail -1`
-  - Change the cut -c flag to match the amount of bases of your FASTQ entries, and remove the tail -1 command to find the QC of the **last** base
+  - Change the `cut -c` flag to match the amount of bases of your FASTQ entries, and remove the tail -1 command to find the QC of the **last** base
 
 **Will be continually updated to include a wider range of bioinformatics tools**
