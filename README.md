@@ -12,6 +12,7 @@ This repository serves as a database of useful command-line statements with a Bi
 - Return lines that do **not** contain a specified sequence in a specified column: `awk '$0 !~ /your_pattern/'`
 - Find the proportion of all numeric values in column 1 and report it in column 3: `awk 'FNR==NR{s+=$1;next;} {printf "%s\t%s\t%s\n",$1,$2,$1/s}' data.txt data.txt > output.txt`
 - Cuts a specific column: `awk -F'\t' '{ print $7 }'`
+- Adds "TARGET_NBL" to the second column of NBL.txt in all rows: `awk -F'\t' -vOFS='\t' '{$2="TARGET_NBL"}1' < NBL.txt > NBL1.txt`
 
 ## FASTQ/A
 - Reading a gzipped file: `zcat SRR1039508_1.fastq.gz`
