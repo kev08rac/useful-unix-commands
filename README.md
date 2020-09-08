@@ -36,4 +36,8 @@ This repository serves as a database of useful command-line statements with a Bi
   -`bedtools getfasta -name -s -fi genome.fa -bed output1.bed -fo > output1.fa`
 - Makes a BED4 file (i.e., chr, start, end, geneID) of all introns for the genes in my_gene.bed: `bed12ToBed6 -i my_gene.bed | bedtools subtract -a my_gene.bed -b - | cut -f -4 > output.bed`
 
+## Resources
+- ggplot2 cheatsheet: https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+- REGEX cheatsheet: https://github.com/rstudio/cheatsheets/raw/master/regex.pdf
+
 **Will be continually updated to include a wider range of bioinformatics tools**
