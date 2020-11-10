@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+#SBATCH --job-name=new-job
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=username@mail.edu
+#SBATCH -n 1
+#SBATCH -t 0-00:60 # Runtime in D-HH:MM
+#SBATCH --output=new-job-%A_%a.out
+#SBATCH --array=1-10
+
+# This is a very basic template script for bash on a remote server using parallelization
+
+set -euo pipefail
+module load gcc/9.2.0
+
+path = /path/to/directory
+job_num = ${SLURM_ARRAY_TASK_ID}
+
+echo $path
+echo $job_num
