@@ -4,6 +4,7 @@ This repository serves as a database of useful command-line statements with a Bi
 
 ## Basic unix (with AWK/SED)
 - Protecting important files to prevent writing over/deleting: `chmod -v u-w file`
+- Check amount storage used in your home directory: `cd ~ du -BG | sort -nr | head n1`
 - Counts the number of genes on the reverse strand from a BED file: `cut -f6 grcz10_refseq.bed | grep -c "-"`
 - Counts the number of mRNA grcz10_refseq.bed that are not on chr14: `grep -wv "^chr14" grcz10_refseq.bed | cut -f4 | grep -c "^NM_"`
 - Replacing matching entries in one column of a file by its matching second column from a different file (matches column 1 in input file to column 1 in second input file. Then replaces the name of the **first** column in the first file with the **second** column in the second file): `awk 'NR==FNR{a[$1]=$2; next}{$1=a[$1]; print}' file2 file1`
