@@ -10,6 +10,7 @@
 
 # This is a very basic template script for bash on a remote server using parallelization
 
+trap '(read -p "[$BASH_SOURCE:$LINE0] $BASH_COMMAND?")' DEBUG # FOR DEBUGGING: Turn off set -u for this to work
 set -euo pipefail
 module load gcc/9.2.0
 
