@@ -1,8 +1,9 @@
 # useful-unix-commands
 ## Description 
-This repository serves as a database of useful command-line statements with a Bioinformatics approach. This includes vanilla Unix commands and commands from popular publicly available Bioinformatics tools. Most of these commands will be useful solving fairly basic questions about various topics such as data-wrangling and omics anaylysis.
+This repository serves as a database of useful command-line statements with a Bioinformatics approach. This includes base Unix commands and commands from popular publicly available Bioinformatics tools. Most of these commands will be useful solving fairly basic questions about various topics such as data-wrangling and data anaylysis. 
 
-## Vanilla unix (with AWK/SED)
+## Basic unix (with AWK/SED)
+- Protecting important files to prevent writing over/deleting: `chmod -v u-w file`
 - Counts the number of genes on the reverse strand from a BED file: `cut -f6 grcz10_refseq.bed | grep -c "-"`
 - Counts the number of mRNA grcz10_refseq.bed that are not on chr14: `grep -wv "^chr14" grcz10_refseq.bed | cut -f4 | grep -c "^NM_"`
 - Replacing matching entries in one column of a file by its matching second column from a different file (matches column 1 in input file to column 1 in second input file. Then replaces the name of the **first** column in the first file with the **second** column in the second file): `awk 'NR==FNR{a[$1]=$2; next}{$1=a[$1]; print}' file2 file1`
@@ -15,7 +16,7 @@ This repository serves as a database of useful command-line statements with a Bi
 - Adds "TARGET_NBL" to the second column of NBL.txt in all rows: `awk -F'\t' -vOFS='\t' '{$2="TARGET_NBL"}1' < NBL.txt > NBL1.txt`
 
 ## FASTQ/A
-- Reading a gzipped file: `zcat SRR1039508_1.fastq.gz`
+- Reading a gzipped file: `zcat SRRXXXXXX.fastq.gz`
 - Returns all sequences that both start and end with C: `grep "^C" data.fa | grep "C$"`
 - Check to see if 2 paired FASTQ files are in sorted order:
   - `gunzip -c A1_1.fastq.gz | sed -n '1~4p' | cut -d . -f1,2 | head > A1_1_sorted.fastq`
