@@ -2,7 +2,7 @@
 ## Description 
 This repository serves as a database of useful command-line statements with a Bioinformatics approach. This includes base Unix commands and commands from popular publicly available Bioinformatics tools. Most of these commands will be useful solving fairly basic questions about various topics such as data-wrangling and data anaylysis. 
 
-## Basic unix (with AWK/SED)
+## Base unix
 - Protecting important files to prevent writing over/deleting: `chmod -v u-w file`
 - Check amount storage used in your home directory: `cd ~ du -BG | sort -nr | head n1`
 - Counts the number of genes on the reverse strand from a BED file: `cut -f6 grcz10_refseq.bed | grep -c "-"`
