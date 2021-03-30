@@ -18,6 +18,9 @@ This repository serves as a database of useful command-line statements with a Bi
 
 ## FASTQ/A
 - Reading a gzipped file: `zcat SRRXXXXXX.fastq.gz`
+- Check to see if `.fq` reads are single or paired end:
+  - `grep -c /1 seq/reads.fq`
+  - `grep -c /2 seq/reads.fq`
 - Returns all sequences that both start and end with C: `grep "^C" data.fa | grep "C$"`
 - Check to see if 2 paired FASTQ files are in sorted order:
   - `gunzip -c A1_1.fastq.gz | sed -n '1~4p' | cut -d . -f1,2 | head > A1_1_sorted.fastq`
