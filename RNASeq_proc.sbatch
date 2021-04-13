@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=kja34@pitt.edu
+#SBATCH --mail-user=user@.edu
 #SBATCH -N 1 # Ensure that all cores are on one machine
 #SBATCH -t 3-00:00 # Runtime in D-HH:MM
 #SBATCH -J star_alignment
