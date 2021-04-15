@@ -39,22 +39,21 @@ module load gcc/9.2.0
 STAR \
 --runMode genomeGenerate \
 --genomeDir ./STAR_reference/ \
---genomeFastaFiles /ihome/hpark/hyp15/test/RNASeq/ref/GRCh38.primary_assembly.genome.fa \
---sjdbGTFfile /ihome/hpark/hyp15/test/RNASeq/ref/gencode.v37.primary_assembly.annotation.gtf 
+--genomeFastaFiles ./ref/GRCh38.primary_assembly.genome.fa \
+--sjdbGTFfile ./ref/gencode.v37.primary_assembly.annotation.gtf 
 
-#5. aligning reads - 
+#6. aligning reads - 
 STAR \
 --runMode alignReads \
---outTmpDir ${FILELOC}tmp \
---runThreadN $NSLOTS \
+--outTmpDir output \
 --outSAMstrandField intronMotif \
 --twopassMode Basic \
 --readFilesIn trimmed.R1.fastq.gz trimmed.R2.fastq.gz \
---outFileNamePrefix $FILELOC \
+--outFileNamePrefix output \
 --quantMode GeneCounts \
 --outStd Log \
 --outWigType bedGraph \
---outWigReferencesPrefix ./$FILELOC/bedgraph \
+--outWigReferencesPrefix ./bedgraph \
 --genomeDir ./STAR_reference/ \
 --readFilesCommand zcat \
 --outSAMtype BAM SortedByCoordinate
