@@ -46,3 +46,6 @@ This repository serves as a database of useful command-line statements with a Bi
 - REGEX cheatsheet: https://github.com/rstudio/cheatsheets/raw/master/regex.pdf
 
 **Will be continually updated to include a wider range of bioinformatics tools**
+## TODO
+- Add R section
+- Add additional commands used in recent coursework such as visualizations and NGS pipeline tools
