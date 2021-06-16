@@ -46,7 +46,7 @@ This repository serves as a database of useful command-line statements with a Bi
   - Get the number of days between 2 dates: `as.numeric(difftime(new.date, old.date, units ="days"))/(365.25/12)`
 - Remove all blank spaces (includes space, tab, vertical tab, newline, form feed, carriage return): `gsub("[[:space:]]", "", x)`
 - Unifies numbers to have the same amount of significant figures. So 34 = 0034, 145 = 0145, etc. (4 sig figs in this example): `paste0(formatC(b$IID, width = 4, flag = "0000")
-- Create a random identification sysem to protect subject privacy by generating a list of 1,000 random numbers and then randomly assigning them to each row of subject IDs: 
+- Create a random identification system to protect subject privacy by generating a list of 1,000 random numbers and then randomly assigning them to each row of subject IDs: 
 ```{r}
 # generates a list of 1000 unique numbers
 random <- sample(1000, replace = FALSE)
