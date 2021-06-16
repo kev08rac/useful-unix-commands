@@ -41,11 +41,30 @@ This repository serves as a database of useful command-line statements with a Bi
 - Counts the number of genes on the reverse strand from a BED file: `cut -f6 grcz10_refseq.bed | grep -c "-"`
 - Counts the number of mRNA grcz10_refseq.bed that are not on chr14: `grep -wv "^chr14" grcz10_refseq.bed | cut -f4 | grep -c "^NM_"`
 
+## R
+- Format dates into year-month-day format: `as.Date(a$bd, format = "%Y-%m-%d")`
+  - Get the number of days between 2 dates: `as.numeric(difftime(new.date, old.date, units ="days"))/(365.25/12)`
+- Remove all blank spaces (includes space, tab, vertical tab, newline, form feed, carriage return): `gsub("[[:space:]]", "", x)`
+- Unifies numbers to have the same amount of significant figures. So 34 = 0034, 145 = 0145, etc. (4 sig figs in this example): `paste0(formatC(b$IID, width = 4, flag = "0000")
+- Create a random identification sysem to protect subject privacy by generating a list of 1,000 random numbers and then randomly assigning them to each row of subject IDs: 
+```{r}
+# generates a list of 1000 unique numbers
+random <- sample(1000, replace = FALSE)
+
+subjectKey <- ds %>%
+  select(subject_id) %>%
+  mutate(newSubjID = paste0("RSUBJ", 
+  formatC(random[sample(length(ds$subject_id), replace = FALSE)], width = 4, flag = "0000"))) %>%
+  rename(origSubjID = subject_id)
+length(unique(subjectKey$newSubjID)) # is equal to number of rows - no new duplicate IDs
+```
+- Renaming columns and set one column as having no header (useful for dpGAP submissions): `rename(VARNAME = 1, VARDESC = 2, UNITS = 3, VALUES = 4, ` ` = 5)`
+
 ## Resources
 - ggplot2 cheatsheet: https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 - REGEX cheatsheet: https://github.com/rstudio/cheatsheets/raw/master/regex.pdf
 
 **Will be continually updated to include a wider range of bioinformatics tools**
 ## TODO
-- Add R section
+- Continue R section
 - Add additional commands used in recent coursework such as visualizations and NGS pipeline tools
