@@ -27,6 +27,7 @@ This repository serves as a database of useful command-line statements with a Bi
 - Gets the quality score of the first base of a FASTQ file: `gunzip -c A1_1.fastq.gz | sed -n '4~4p' | cut -c1 | sort | uniq -c | sort -k1,1n | tail -1`
   - Change the `cut -c` flag to match the amount of bases of your FASTQ entries, and remove the tail -1 command to find the QC of the **last** base
 - Convert a text file of DNA sequences to FASTA format: `awk '{print ">"NR"\n"$0}' DNA.txt > fasta.txt`
+- Get the file count of every file in each subdirectory as well as parent: `du -a | cut -d/ -f2 | sort | uniq -c | sort -nr`
 
 ## BEDTools
 - Deduces how many genes overlap a different gene in the same BED file: `bedtools intersect -wa -a genes.bed -b genes.bed | wc -l`
