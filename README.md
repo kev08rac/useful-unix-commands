@@ -13,6 +13,7 @@ This repository serves as a database of useful command-line statements with a Bi
 - Find the proportion of all numeric values in column 1 and report it in column 3: `awk 'FNR==NR{s+=$1;next;} {printf "%s\t%s\t%s\n",$1,$2,$1/s}' data.txt data.txt > output.txt`
 - Cuts a specific column: `awk -F'\t' '{ print $1 }'`
 - Adds "TARGET" to the second column of NBL.txt in all rows: `awk -F'\t' -vOFS='\t' '{$2="TARGET"}1' < NBL.txt > NBL1.txt`
+- Show only a subset of columns (similar to head but for columns): `colrm 10`
 
 ## FASTQ/A
 - Reading a gzipped file: `zcat SRRXXXXXX.fastq.gz`
