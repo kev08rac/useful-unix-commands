@@ -1,4 +1,4 @@
-# useful-unix-commands
+# useful-bfx-commands
 ## Description 
 This repository serves as a database of useful command-line statements with a Bioinformatics approach. This includes base Unix commands and commands from popular publicly available Bioinformatics tools. Most of these commands will be useful solving fairly basic questions about various topics such as data-wrangling and data analysis. 
 
