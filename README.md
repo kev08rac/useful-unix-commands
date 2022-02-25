@@ -1,6 +1,6 @@
 # useful-bfx-commands
 ## Description 
-This repository serves as a database of useful command-line statements with a Bioinformatics approach. This includes base Unix commands and commands from popular publicly available Bioinformatics tools. Most of these commands will be useful solving fairly basic questions about various topics such as data-wrangling and data analysis. 
+This document is a database of useful command-line statements with a Bioinformatics approach that I have found useful over my undergraduate and graduate academic career. This includes base Unix commands and commands from popular publicly available Bioinformatics tools. Most of these commands will be useful solving fairly basic data-wrangling and data analysis methods used in everday bioinformatics work. 
 
 ## Base unix
 - Protecting important files to prevent writing over/deleting: `chmod -v u-w file`
